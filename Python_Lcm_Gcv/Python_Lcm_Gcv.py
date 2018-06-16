@@ -35,10 +35,11 @@ def calc(dic):
     gcd = lcm = 1
 
     for key, value in dic.items():
-        ar = [key ** vv for vv in value]
+        max_index = max(value)
+        min_index = min(value)
 
-        lcm = lcm * max(ar)
-        gcd = gcd * min(ar)
+        lcm = lcm * (key ** max_index)
+        gcd = gcd * (key ** min_index)
 
     return lcm, gcd
 
