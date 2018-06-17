@@ -1,16 +1,32 @@
 ## 素因数分解
 def prime_factorize(num):
     prime_dic = {}
+    
+    ## 変数の初期値は素因数分解したい値
     tmp = num
+
+    ## 2(最小の素数)で除算するところから
     n = 2
+
+    ## 除算の結果が1になるまで繰り返し
     while tmp > 1:
         i = 0
+
+        ## nで割りきれる(nで割った余りがゼロ)の間、繰り返し
         while tmp % n == 0:
+            ## 指数+1
             i += 1
+            ## 除算して、商を変数に入れる
             tmp = tmp / n
+
+        ## 1回でも除算ができた場合
         if i > 0 :
+            ## 素数と指数を辞書にセット
             prime_dic[n] = i
+
+        ## 次の自然数へ
         n += 1
+
     return prime_dic
 
 def lineup_power_index(pfs):
@@ -43,7 +59,7 @@ def calc(dic):
 
     return lcm, gcd
 
-nums = [12,16,18]
+nums = [12,15]
 
 pfs = [prime_factorize(n) for n in nums]
 dic = lineup_power_index(pfs)
